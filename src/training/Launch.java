@@ -20,23 +20,23 @@ public class Launch {
 			p.load(new FileInputStream("./data.properties"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 		} 
 		driver.get(p.getProperty("URL"));
 		driver.findElement(By.id("edit-name")).sendKeys(p.getProperty("username"));
-		//driver.findElement(By.id("edit-pass")).sendKeys("");
-		//driver.findElement(By.id("edit-submit")).click();
+		driver.findElement(By.id("edit-pass")).sendKeys("");
+		driver.findElement(By.id("edit-submit")).click();
 		String t=driver.getTitle();
 		System.out.println(t);
 		String url=driver.getCurrentUrl();
 		System.out.println(url);
 		if(t.equals("Programming Competition,Programming Contest,Online Computer Programming")) {
-			System.out.println("pass");
+			System.out.println("Test cases passed");
 		}
 		else {
 			System.out.println("fail");
 		}
-		//driver.close();
+		driver.close();
 	}
 
 }
